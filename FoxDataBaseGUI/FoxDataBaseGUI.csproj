@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FoxDataBase\Fox\FoxDataBase.csproj" />
+    <ProjectReference Include="..\FoxDataBase\FoxDataBase.csproj" />
   </ItemGroup>
 
   <ItemGroup>
