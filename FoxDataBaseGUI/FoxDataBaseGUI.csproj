@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\AppIcon.ico" />
+    <None Remove="Images\Fox.png" />
+    <None Remove="Images\IconLoadImage.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FoxDataBase\Fox\FoxDataBase.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\AppIcon.ico" />
+    <Resource Include="Images\Fox.png" />
+    <Resource Include="Images\IconLoadImage.png" />
+  </ItemGroup>
+
+</Project>

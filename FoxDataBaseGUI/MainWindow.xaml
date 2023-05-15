@@ -1,0 +1,175 @@
+﻿<Window x:Class="FoxDataBaseGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FoxDataBaseGUI"
+        xmlns:local1="clr-namespace:FoxDataBase;assembly=FoxDataBase"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="Лисопедия"
+        Height="580" Width="580" MinWidth="580" MinHeight="580"
+        WindowStartupLocation="CenterScreen" FontFamily="Comic Sans MS" Icon="/Images/AppIcon.ico">
+
+    <Window.DataContext>
+        <local1:Fox/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <local:BytesToBitmapConverter x:Key="ImageConverter"/>
+    </Window.Resources>
+
+
+    <Grid Background="Orange" Margin="0,0,0,1">
+
+        <Menu Height="24" VerticalAlignment="Top" FontFamily="Comic Sans MS" Background="#FFFFE3A5" FontSize="13" Margin="20,0,20,0">
+            <MenuItem x:Name="MenuItem_File" Header="Файл" Height="24" Width="60" Foreground="#FF844012">
+                <MenuItem x:Name="MenuItem_Open" Header="Открыть" Click="MenuItem_Open_Click"></MenuItem>
+                <MenuItem x:Name="MenuItem_Create" Header="Создать" Click="MenuItem_Create_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem x:Name="MenuItem_Help" Header="Справка" Width="60" Foreground="#FF844012" Click="MenuItem_Help_Click" ></MenuItem>
+
+            <Menu.Effect>
+                <DropShadowEffect Color="#FF0056FF" RenderingBias="Performance" ShadowDepth="7" Opacity="0.3"/>
+            </Menu.Effect>
+
+        </Menu>
+
+
+        <TextBlock x:Name="TextBlock_Filename" Margin="0,0,20,0" FontFamily="Comic Sans MS" FontSize="13" TextAlignment="Right" Foreground="#FF1B1815" HorizontalAlignment="Right" Width="240" Height="20" VerticalAlignment="Bottom"/>
+
+
+        <DataGrid x:Name="DataGridFoxes" AutoGenerateColumns="False" Margin="20,304,20,20"
+                  ColumnHeaderHeight="25"
+                  RowHeight="30"
+                  GridLinesVisibility="Vertical"
+                  IsReadOnly="True"
+                  Background="#FFFFE3A5"
+                  RowBackground="#FFFFE3A5"
+                  AlternatingRowBackground="#FFFBD98F"
+                  BorderBrush="#FFB56009" Foreground="#FF884212"
+                  FontSize="13" FontFamily="Comic Sans MS"
+                  BorderThickness="0,0,0,0"
+                  VerticalGridLinesBrush="#FFD8B362" GotFocus="DataGridFoxes_GotFocus">
+
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="60">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Path=Image, Converter={StaticResource ImageConverter}}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTextColumn Header="Вид" Binding="{Binding Path=Species}" Width="160" FontFamily="Comic Sans MS" />
+                <DataGridTextColumn Header="Описание" Binding="{Binding Path=Description}" Width="200" FontFamily="Comic Sans MS" />
+                <DataGridTextColumn Header="Длина хвоста" Binding="{Binding Path=TailLength}" Width="99" FontFamily="Comic Sans MS" />
+            </DataGrid.Columns>
+
+            <DataGrid.Effect>
+                <DropShadowEffect Color="#FF0056FF" RenderingBias="Performance" ShadowDepth="7" Opacity="0.3"/>
+            </DataGrid.Effect>
+
+        </DataGrid>
+
+        <Image Margin="20,44,0,0" Source="/Images/Fox.png" Stretch="Fill" Height="180" VerticalAlignment="Top" HorizontalAlignment="Left" Width="180">
+            <Image.Effect>
+                <DropShadowEffect Color="#FF0056FF" RenderingBias="Performance" ShadowDepth="7" Opacity="0.3"/>
+            </Image.Effect>
+        </Image>
+        
+        <Image x:Name="ImageFox" Margin="20,44,0,0"
+               Height="180"
+               VerticalAlignment="Top" HorizontalAlignment="Left" Width="180"
+               Stretch="None"
+               Source="{Binding ElementName=DataGridFoxes,
+                        Path=SelectedItem.Image,
+                        Converter={StaticResource ImageConverter}}">
+        </Image>
+
+
+        <Grid Margin="220,44,20,0"
+              Background="#FFFFE3A5"
+              Height="180" VerticalAlignment="Top">
+
+            <TextBlock Height="20"
+                       FontFamily="Comic Sans MS"
+                       FontSize="16"
+                       Foreground="#FF924E20" VerticalAlignment="Top" Margin="10,0,10,0"
+                       Text="{Binding ElementName=DataGridFoxes,
+                              Path=SelectedItem.Species}" />
+
+            <ScrollViewer Margin="0,22,0,25" VerticalScrollBarVisibility="Auto">
+                <TextBlock TextWrapping="Wrap"
+                       FontFamily="Comic Sans MS"
+                       FontSize="14" Foreground="#FF542A0C"
+                       Margin="10,0,10,0" Height="auto"
+                       VerticalAlignment="Center"
+                       Text="{Binding ElementName=DataGridFoxes,
+                              Path=SelectedItem.Description}"/>
+
+            </ScrollViewer>
+                    
+            <TextBlock TextWrapping="Wrap"
+                       FontFamily="Comic Sans MS" Foreground="#FF885C3C"
+                       Margin="10,155,10,0" Height="15"
+                       VerticalAlignment="Top"                
+                       Text="{Binding SelectedItem.TailLength,
+                              ElementName=DataGridFoxes,
+                              TargetNullValue={x:Static System:String.Empty},
+                              StringFormat={}Хвост {0} см}"/>
+
+            <Grid.Effect>
+                <DropShadowEffect Color="#FF0056FF" RenderingBias="Performance" ShadowDepth="7" Opacity="0.3"/>
+            </Grid.Effect>
+
+        </Grid>
+
+
+        <Grid HorizontalAlignment="Center" Margin="0,243,0,0" VerticalAlignment="Top" Width="521">
+
+            <Button x:Name="ButtonAdd"
+                HorizontalAlignment="Left" Width="160"
+                Content="Добавить"
+                Click="ButtonAdd_Click"
+                FontFamily="Comic Sans MS" FontSize="14"
+                IsEnabled="False" Foreground="#FF924E20" Background="White" Height="40" VerticalAlignment="Top" BorderBrush="#FFBB4913" ToolTip="Добавить новую лису в базу данных">
+
+                <Button.Effect>
+                    <DropShadowEffect Color="#FF0056FF" RenderingBias="Performance" ShadowDepth="7" Opacity="0.3"/>
+                </Button.Effect>
+
+            </Button>
+
+            <Button x:Name="ButtonEdit"
+                Content="Изменить"
+                Click="ButtonEdit_Click"
+                FontFamily="Comic Sans MS" FontSize="14"
+                IsEnabled="False" Foreground="#FF924E20" Background="White" Width="160" Height="40" VerticalAlignment="Top" HorizontalAlignment="Center" BorderBrush="#FFBB4913" ToolTip="Отредактировать выбранную лису">
+
+                <Button.Effect>
+                    <DropShadowEffect Color="#FF0056FF" RenderingBias="Performance" ShadowDepth="7" Opacity="0.3"/>
+                </Button.Effect>
+
+            </Button>
+
+            <Button x:Name="ButtonDelete"
+                Content="Удалить"
+                FontFamily="Comic Sans MS" FontSize="14"
+                IsEnabled="False"
+                Foreground="#FF924E20" Background="White"
+                Height="40"
+                VerticalAlignment="Top" HorizontalAlignment="Left"
+                Width="160" Margin="361,0,0,0" BorderBrush="#FFBB4913" Click="ButtonDelete_Click" ToolTip="Удалить выбранную лису">
+
+                <Button.Effect>
+                    <DropShadowEffect Color="#FF0056FF" RenderingBias="Performance" ShadowDepth="7" Opacity="0.3"/>
+                </Button.Effect>
+
+            </Button>
+
+        </Grid>
+
+    </Grid>
+
+</Window>
