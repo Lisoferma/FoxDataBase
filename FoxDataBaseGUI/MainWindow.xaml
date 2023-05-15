@@ -99,7 +99,7 @@
                        Text="{Binding ElementName=DataGridFoxes,
                               Path=SelectedItem.Species}" />
 
-            <ScrollViewer Margin="0,22,0,25" VerticalScrollBarVisibility="Auto">
+            <ScrollViewer Margin="0,27,0,30" VerticalScrollBarVisibility="Auto">
                 <TextBlock TextWrapping="Wrap"
                        FontFamily="Comic Sans MS"
                        FontSize="14" Foreground="#FF542A0C"
