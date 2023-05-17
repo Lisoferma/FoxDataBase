@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 
 namespace FoxDataBaseGUI;
@@ -128,6 +129,7 @@ public partial class MainWindow : Window
     private void ButtonEdit_Click(object sender, RoutedEventArgs e)
     {
         if (_dbFox == null) return;
+        if (DataGridFoxes.SelectedItem == null) return;
 
         Fox selectedFox = (Fox)DataGridFoxes.SelectedItem;
 
@@ -145,10 +147,11 @@ public partial class MainWindow : Window
     private void ButtonDelete_Click(object sender, RoutedEventArgs e)
     {
         if (_dbFox == null) return;
+        if (DataGridFoxes.SelectedItem == null) return;
 
         Fox selectedFox = (Fox)DataGridFoxes.SelectedItem;
 
-        string sMessageBoxText = $"Вы уверены что хотите удалить: {selectedFox.Species}?";
+        string sMessageBoxText = $"Вы уверены, что хотите удалить: {selectedFox.Species}?";
         string sCaption = "Предупреждение";
 
         MessageBoxButton btnMessageBox = MessageBoxButton.YesNo;
@@ -186,5 +189,27 @@ public partial class MainWindow : Window
     {
         ButtonEdit.IsEnabled = true;
         ButtonDelete.IsEnabled = true;
+    }
+
+
+    /// <summary>
+    /// Обработчик изменения текста в <see cref="TextBoxSearch"/>.
+    /// Поиск по введённому тексту в <see cref="DataGridFoxes"/>.
+    /// </summary>
+    private void TextBoxSearch_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+    {
+        if (TextBoxSearch.Text != "")
+        {
+            string filter = TextBoxSearch.Text.ToLower();
+
+            var filteredList =
+                _dbFox?.FoxData.Where( fox => fox.Species.ToLower().Contains(filter) );
+
+            DataGridFoxes.ItemsSource = filteredList;
+        }
+        else
+        {
+            DataGridFoxes.ItemsSource = _dbFox?.FoxData;
+        }
     }
 }

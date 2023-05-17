@@ -9,8 +9,13 @@
 
   <ItemGroup>
     <None Remove="Images\AppIcon.ico" />
+    <None Remove="Images\AppIcon2.ico" />
+    <None Remove="Images\ButtonDelete.png" />
+    <None Remove="Images\ButtonEdit.png" />
+    <None Remove="Images\ButtonPlus.png" />
     <None Remove="Images\Fox.png" />
-    <None Remove="Images\IconLoadImage.png" />
+    <None Remove="Images\MenuFile.png" />
+    <None Remove="Images\MenuHelp.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,8 +24,13 @@
 
   <ItemGroup>
     <Resource Include="Images\AppIcon.ico" />
+    <Resource Include="Images\AppIcon2.ico" />
+    <Resource Include="Images\ButtonDelete.png" />
+    <Resource Include="Images\ButtonEdit.png" />
+    <Resource Include="Images\ButtonPlus.png" />
     <Resource Include="Images\Fox.png" />
-    <Resource Include="Images\IconLoadImage.png" />
+    <Resource Include="Images\MenuFile.png" />
+    <Resource Include="Images\MenuHelp.png" />
   </ItemGroup>
 
 </Project>

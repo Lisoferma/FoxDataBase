@@ -23,11 +23,28 @@
     <Grid Background="Orange" Margin="0,0,0,1">
 
         <Menu Height="24" VerticalAlignment="Top" FontFamily="Comic Sans MS" Background="#FFFFE3A5" FontSize="13" Margin="20,0,20,0">
-            <MenuItem x:Name="MenuItem_File" Header="Файл" Height="24" Width="60" Foreground="#FF844012">
-                <MenuItem x:Name="MenuItem_Open" Header="Открыть" Click="MenuItem_Open_Click"></MenuItem>
-                <MenuItem x:Name="MenuItem_Create" Header="Создать" Click="MenuItem_Create_Click"></MenuItem>
+            <MenuItem x:Name="MenuItem_File" Height="24" Width="80" Foreground="#FF844012" FontSize="14" Cursor="Hand">
+                <MenuItem x:Name="MenuItem_Open" Header="Открыть" Click="MenuItem_Open_Click"/>
+                <MenuItem x:Name="MenuItem_Create" Header="Создать" Click="MenuItem_Create_Click"/>
+
+                <MenuItem.Icon>
+                    <Image Source="/Images/MenuFile.png"></Image>
+                </MenuItem.Icon>
+
+                <MenuItem.Header>
+                    <TextBlock Text="Файл" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                </MenuItem.Header>
             </MenuItem>
-            <MenuItem x:Name="MenuItem_Help" Header="Справка" Width="60" Foreground="#FF844012" Click="MenuItem_Help_Click" ></MenuItem>
+
+            <MenuItem x:Name="MenuItem_Help" Width="80" Foreground="#FF844012" Click="MenuItem_Help_Click" Height="24" Cursor="Hand">
+                <MenuItem.Icon>
+                    <Image Source="/Images/MenuHelp.png"></Image>
+                </MenuItem.Icon>
+
+                <MenuItem.Header>
+                    <TextBlock Text="Справка" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                </MenuItem.Header>
+            </MenuItem>
 
             <Menu.Effect>
                 <DropShadowEffect Color="#FF0056FF" RenderingBias="Performance" ShadowDepth="7" Opacity="0.3"/>
@@ -36,10 +53,10 @@
         </Menu>
 
 
-        <TextBlock x:Name="TextBlock_Filename" Margin="0,0,20,0" FontFamily="Comic Sans MS" FontSize="13" TextAlignment="Right" Foreground="#FF1B1815" HorizontalAlignment="Right" Width="240" Height="20" VerticalAlignment="Bottom"/>
+        <TextBlock x:Name="TextBlock_Filename" Margin="0,0,20,20" FontFamily="Comic Sans MS" FontSize="14" TextAlignment="Right" Foreground="#FF844012" HorizontalAlignment="Right" Width="160" Height="20" VerticalAlignment="Bottom"/>
 
 
-        <DataGrid x:Name="DataGridFoxes" AutoGenerateColumns="False" Margin="20,304,20,20"
+        <DataGrid x:Name="DataGridFoxes" AutoGenerateColumns="False" Margin="20,304,20,40"
                   ColumnHeaderHeight="25"
                   RowHeight="30"
                   GridLinesVisibility="Vertical"
@@ -56,14 +73,14 @@
                 <DataGridTemplateColumn Width="60">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding Path=Image, Converter={StaticResource ImageConverter}}"/>
+                            <Image Source="{Binding Path=Image, Converter={StaticResource ImageConverter}}" Stretch="Uniform"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
                 <DataGridTextColumn Header="Вид" Binding="{Binding Path=Species}" Width="160" FontFamily="Comic Sans MS" />
                 <DataGridTextColumn Header="Описание" Binding="{Binding Path=Description}" Width="200" FontFamily="Comic Sans MS" />
-                <DataGridTextColumn Header="Длина хвоста" Binding="{Binding Path=TailLength}" Width="99" FontFamily="Comic Sans MS" />
+                <DataGridTextColumn Header="Длина хвоста" Binding="{Binding Path=TailLength}" Width="95" FontFamily="Comic Sans MS" />
             </DataGrid.Columns>
 
             <DataGrid.Effect>
@@ -77,15 +94,13 @@
                 <DropShadowEffect Color="#FF0056FF" RenderingBias="Performance" ShadowDepth="7" Opacity="0.3"/>
             </Image.Effect>
         </Image>
-        
+
         <Image x:Name="ImageFox" Margin="20,44,0,0"
                Height="180"
                VerticalAlignment="Top" HorizontalAlignment="Left" Width="180"
-               Stretch="None"
                Source="{Binding ElementName=DataGridFoxes,
                         Path=SelectedItem.Image,
-                        Converter={StaticResource ImageConverter}}">
-        </Image>
+                        Converter={StaticResource ImageConverter}}"/>
 
 
         <Grid Margin="220,44,20,0"
@@ -104,12 +119,12 @@
                        FontFamily="Comic Sans MS"
                        FontSize="14" Foreground="#FF542A0C"
                        Margin="10,0,10,0" Height="auto"
-                       VerticalAlignment="Center"
+                       VerticalAlignment="Top"
                        Text="{Binding ElementName=DataGridFoxes,
                               Path=SelectedItem.Description}"/>
 
             </ScrollViewer>
-                    
+
             <TextBlock TextWrapping="Wrap"
                        FontFamily="Comic Sans MS" Foreground="#FF885C3C"
                        Margin="10,155,10,0" Height="15"
@@ -130,10 +145,15 @@
 
             <Button x:Name="ButtonAdd"
                 HorizontalAlignment="Left" Width="160"
-                Content="Добавить"
                 Click="ButtonAdd_Click"
+                Cursor="Hand"
                 FontFamily="Comic Sans MS" FontSize="14"
                 IsEnabled="False" Foreground="#FF924E20" Background="White" Height="40" VerticalAlignment="Top" BorderBrush="#FFBB4913" ToolTip="Добавить новую лису в базу данных">
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Добавить" Height="20"/>
+                    <Image Source="Images/ButtonPlus.png" Width="35" Height="20"/>
+                </StackPanel>
 
                 <Button.Effect>
                     <DropShadowEffect Color="#FF0056FF" RenderingBias="Performance" ShadowDepth="7" Opacity="0.3"/>
@@ -142,10 +162,15 @@
             </Button>
 
             <Button x:Name="ButtonEdit"
-                Content="Изменить"
                 Click="ButtonEdit_Click"
+                Cursor="Hand"
                 FontFamily="Comic Sans MS" FontSize="14"
                 IsEnabled="False" Foreground="#FF924E20" Background="White" Width="160" Height="40" VerticalAlignment="Top" HorizontalAlignment="Center" BorderBrush="#FFBB4913" ToolTip="Отредактировать выбранную лису">
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Изменить" Height="20"/>
+                    <Image Source="Images/ButtonEdit.png" Width="35" Height="19"/>
+                </StackPanel>
 
                 <Button.Effect>
                     <DropShadowEffect Color="#FF0056FF" RenderingBias="Performance" ShadowDepth="7" Opacity="0.3"/>
@@ -154,13 +179,17 @@
             </Button>
 
             <Button x:Name="ButtonDelete"
-                Content="Удалить"
                 FontFamily="Comic Sans MS" FontSize="14"
                 IsEnabled="False"
                 Foreground="#FF924E20" Background="White"
-                Height="40"
+                Height="40" Cursor="Hand"
                 VerticalAlignment="Top" HorizontalAlignment="Left"
                 Width="160" Margin="361,0,0,0" BorderBrush="#FFBB4913" Click="ButtonDelete_Click" ToolTip="Удалить выбранную лису">
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Удалить" Height="20"/>
+                    <Image Source="Images/ButtonDelete.png" Width="35" Height="20"/>
+                </StackPanel>
 
                 <Button.Effect>
                     <DropShadowEffect Color="#FF0056FF" RenderingBias="Performance" ShadowDepth="7" Opacity="0.3"/>
@@ -169,6 +198,24 @@
             </Button>
 
         </Grid>
+
+        <TextBlock Margin="20,0,0,20" FontSize="14"
+                   Text="Поиск"
+                   Foreground="#FF844012" Background="#FFFFE3A5" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="55" TextAlignment="Center">
+
+            <TextBlock.Effect>
+                <DropShadowEffect Color="#FF0056FF" RenderingBias="Performance" ShadowDepth="7" Opacity="0.3"/>
+            </TextBlock.Effect>
+        </TextBlock>
+
+        <TextBox x:Name="TextBoxSearch"
+                 Margin="75,0,0,20"
+                 Background="#FFFFE3A5" BorderBrush="#FFE0A38A" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="205" TextChanged="TextBoxSearch_TextChanged" ToolTip="Поиск по виду">
+
+            <TextBox.Effect>
+                <DropShadowEffect Color="#FF0056FF" RenderingBias="Performance" ShadowDepth="7" Opacity="0.3"/>
+            </TextBox.Effect>
+        </TextBox>
 
     </Grid>
 
