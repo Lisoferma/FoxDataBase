@@ -7,7 +7,7 @@ namespace FoxDataBaseGUI;
 using FoxDataBase;
 
 /// <summary>
-/// Логика взаимодействия для главного окна программы -- MainWindow.xaml
+/// Логика взаимодействия для главного окна программы MainWindow.xaml
 /// </summary>
 public partial class MainWindow : Window
 {   
@@ -97,13 +97,9 @@ public partial class MainWindow : Window
     /// </summary>
     private void MenuItem_Help_Click(object sender, RoutedEventArgs e)
     {
-        string sMessageBoxText = "Лисопедия\nРазработал Lisoferma";
-        string sCaption = "Справка";
-
-        MessageBoxButton btnMessageBox = MessageBoxButton.OK;
-        MessageBoxImage icnMessageBox = MessageBoxImage.Information;
-
-        MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, icnMessageBox);
+        HelpWindow helpWindow = new();
+        helpWindow.Owner = this;
+        helpWindow.ShowDialog();
     }
 
 

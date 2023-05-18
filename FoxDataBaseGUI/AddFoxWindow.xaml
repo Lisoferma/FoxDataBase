@@ -34,7 +34,7 @@
         <Button x:Name="ButtonApply" Background="White"
                 Content="Добавить"
                 Margin="20,0,20,19" FontFamily="Comic Sans MS" Height="40" VerticalAlignment="Bottom" BorderBrush="#FFBB4913"
-                Click="ButtonApply_Click" Foreground="#FF79380C" FontSize="14" ToolTip="Добавить лису в базу данных с заданными характеристиками" >
+                Click="ButtonApply_Click" Foreground="#FF79380C" FontSize="14" ToolTip="Добавить лису в базу данных с заданными характеристиками" Cursor="Hand" >
 
             <Button.Effect>
                 <DropShadowEffect Color="#FF0056FF" RenderingBias="Performance" ShadowDepth="7" Opacity="0.3"/>
@@ -67,7 +67,7 @@
                MouseDown="Image_UserLoad_MouseDown"
                Source="{Binding Image,
                         ValidatesOnExceptions=True,
-                        Converter={StaticResource ImageConverter}}" ToolTip="Загрузить изображение для лисы" />
+                        Converter={StaticResource ImageConverter}}" ToolTip="Загрузить изображение для лисы. Рекомендуется квадратное соотношение сторон." />
 
         
         <Label Margin="20,9,170,0"
