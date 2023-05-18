@@ -65,22 +65,25 @@
                   RowBackground="#FFFFE3A5"
                   AlternatingRowBackground="#FFFBD98F"
                   BorderBrush="#FFB56009" Foreground="#FF884212"
-                  FontSize="13" FontFamily="Comic Sans MS"
+                  FontSize="14" FontFamily="Comic Sans MS"
                   BorderThickness="0,0,0,0"
-                  VerticalGridLinesBrush="#FFD8B362" GotFocus="DataGridFoxes_GotFocus">
+                  VerticalGridLinesBrush="#FFD8B362" GotFocus="DataGridFoxes_GotFocus" MinRowHeight="30">
 
             <DataGrid.Columns>
-                <DataGridTemplateColumn Width="60">
+                <DataGridTemplateColumn Width="50">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding Path=Image, Converter={StaticResource ImageConverter}}" Stretch="Uniform"/>
+                            <Image Source="{Binding Path=Image,
+                                   Converter={StaticResource ImageConverter},
+                                   ConverterParameter=50}"
+                                   Stretch="UniformToFill"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <DataGridTextColumn Header="Вид" Binding="{Binding Path=Species}" Width="160" FontFamily="Comic Sans MS" />
-                <DataGridTextColumn Header="Описание" Binding="{Binding Path=Description}" Width="200" FontFamily="Comic Sans MS" />
-                <DataGridTextColumn Header="Длина хвоста" Binding="{Binding Path=TailLength}" Width="95" FontFamily="Comic Sans MS" />
+                <DataGridTextColumn Header="Вид" Binding="{Binding Path=Species}" Width="160" FontFamily="Comic Sans MS"/>
+                <DataGridTextColumn Header="Описание" Binding="{Binding Path=Description}" Width="190" FontFamily="Comic Sans MS" />
+                <DataGridTextColumn Header="Длина хвоста" Binding="{Binding Path=TailLength}" Width="105" FontFamily="Comic Sans MS" />
             </DataGrid.Columns>
 
             <DataGrid.Effect>
@@ -100,7 +103,8 @@
                VerticalAlignment="Top" HorizontalAlignment="Left" Width="180"
                Source="{Binding ElementName=DataGridFoxes,
                         Path=SelectedItem.Image,
-                        Converter={StaticResource ImageConverter}}"/>
+                        Converter={StaticResource ImageConverter}, ConverterParameter=200}"
+               Stretch="Fill"/>
 
 
         <Grid Margin="220,44,20,0"
