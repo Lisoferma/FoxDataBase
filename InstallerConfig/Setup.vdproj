@@ -15,7 +15,7 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_17E4CB2361694836B1729B24F25A8F2B"
+        "MsmKey" = "8:_1B4FEE075612438DA1E90D6D14A1DCDA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -114,9 +114,9 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_17E4CB2361694836B1729B24F25A8F2B"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1B4FEE075612438DA1E90D6D14A1DCDA"
             {
-            "SourcePath" = "8:..\\..\\FoxDataBaseGUI\\Images\\AppIcon.ico"
+            "SourcePath" = "8:..\\FoxDataBaseGUI\\Images\\AppIcon.ico"
             "TargetName" = "8:AppIcon.ico"
             "Tag" = "8:"
             "Folder" = "8:_B6659DA14B7C42E387780871063BB9CC"
@@ -311,7 +311,7 @@
             "Target" = "8:_8466945959C34012ABA8EB989DA055C8"
             "Folder" = "8:_7D3B2AC709834D3D8E7A77EC0F92943C"
             "WorkingFolder" = "8:_B6659DA14B7C42E387780871063BB9CC"
-            "Icon" = "8:_17E4CB2361694836B1729B24F25A8F2B"
+            "Icon" = "8:_1B4FEE075612438DA1E90D6D14A1DCDA"
             "Feature" = "8:"
             }
         }
