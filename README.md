@@ -2,9 +2,13 @@
 
 ![Title](https://github.com/Lisoferma/FoxDataBase/assets/115818156/21062d07-cbba-43d8-88f7-9abfcd50dcbe "Лисы")
 
-База данных лис на основе SQLite.
+Локальная база данных лис на основе SQLite:
+- [Скачать программу](https://github.com/Lisoferma/FoxDataBase/raw/master/Disribution/Fox%20Database%20Setup.msi)
 
-[Скачать программу](https://github.com/Lisoferma/FoxDataBase/raw/master/Disribution/Fox%20Database%20Setup.msi)
+А также вы можете открыть готовый файл базы данных лис:
+- [Скачать файл с лисами](https://github.com/Lisoferma/FoxDataBase/raw/master/DatabaseFiles/Foxes.db)
+
+![FoxesDB](https://github.com/Lisoferma/FoxDataBase/assets/115818156/60d5ff41-e425-4459-9c50-d0486d71da25 "Главное окно Лисопедии")
 
 ## UML-диаграмма классов
 ![UML-диаграмма классов](https://github.com/Lisoferma/FoxDataBase/assets/115818156/faca4752-35fd-4689-9aa5-4d2c6c557a62 "UML-диаграмма классов")
