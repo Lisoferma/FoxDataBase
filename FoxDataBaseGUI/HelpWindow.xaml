@@ -33,15 +33,15 @@
         <Button x:Name="ButtonOk"
             FontFamily="Comic Sans MS" FontSize="14"
             Foreground="#FF924E20" Background="White" Cursor="Hand" HorizontalAlignment="Center"
-            Width="160" Margin="0,0,0,20" BorderBrush="#FFBB4913" Click="ButtonOk_Click" ToolTip="Удалить выбранную лису" Height="40" VerticalAlignment="Bottom">
+            Width="160" Margin="0,0,0,20" BorderBrush="#FFBB4913" Click="ButtonOk_Click" Height="40" VerticalAlignment="Bottom">
 
             <Button.Effect>
                 <DropShadowEffect Color="#FF0056FF" RenderingBias="Performance" ShadowDepth="7" Opacity="0.3"/>
             </Button.Effect>
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Понятно" Height="20"/>
-                <Image Source="/Images/ButtonDelete.png" Width="35" Height="20"/>
+                <TextBlock Text="Понятно" Height="20" Width="104" TextAlignment="Right"/>
+                <Image Source="/Images/AppIcon.ico" Width="53" Height="52" Opacity="0.9"/>
             </StackPanel>
 
         </Button>
