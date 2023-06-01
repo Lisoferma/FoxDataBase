@@ -163,6 +163,8 @@ public class FoxDataBase
             CommandText = sqlInsert
         };
 
+        // добавление параметров в коллекцию команды:
+        // (@название параметра (будет подставляться в sql запрос), его значение)
         command.Parameters.Add(
             new SqliteParameter("@species", fox.Species));
 
