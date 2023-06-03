@@ -11,5 +11,4 @@
 ![FoxesDB](https://github.com/Lisoferma/FoxDataBase/assets/115818156/60d5ff41-e425-4459-9c50-d0486d71da25 "Главное окно Лисопедии")
 
 ## UML-диаграмма классов
-![UML-диаграмма классов](https://github.com/Lisoferma/FoxDataBase/assets/115818156/faca4752-35fd-4689-9aa5-4d2c6c557a62 "UML-диаграмма классов")
-
+![Fox database (1)](https://github.com/Lisoferma/FoxDataBase/assets/115818156/f07f604f-4573-4be7-a6fe-ecb9815ddb97)
